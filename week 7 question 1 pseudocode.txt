@@ -1,0 +1,19 @@
+CLASS VERTEX:
+    adjacentEdges <- []
+
+    ADDADJACENT(node)
+        adjacentEdges.append(node)               		                            #Add the adjacent edges
+
+CLASS GRAPH(VERTEX)    
+        nodeDict <- {}                                                        		#Graph vertices are the keys with the values being corresponding edges
+
+    ADDNODE(vertex)                                                     
+        newNode <- Vertex()                                                        	#Create a Vertex object      
+        nodeDict[vertex].append(newNode.adjacentEdges)  						 	#Create a new value with a missing key or gets the value associated with a key 
+        RETURN newNode
+
+
+    ADDEDGE(node1, node2):
+		ADDNODE(node1).ADDADJACENT(node2)                                    			#Adjacent node added
+		ADDNODE(node2).ADDADJACENT(node1)                                    
+

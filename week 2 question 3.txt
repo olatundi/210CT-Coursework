@@ -1,0 +1,53 @@
+MATRIXADDITION(B, C)
+SUM <- empty matrix
+n <- INPUT matrix order									(1)   			//Order of matrix, e.g 2 is 2x2 matrix.
+for row <- 1 to n										(n)				//row of first matrix
+	for col <- 1 to n									(n*n)			//column of second matrix
+		SUM[row,col] <- B[row,col] + C[row,col]			(n*n)
+return SUM												(1)	
+														=2n^2+n+2     	//BigO is O(n^2)
+MATRIXSUBTRACTION(B, C)
+SUM <- empty matrix
+n <-INPUT matrix order									(1)   			
+for row <- 1 to n										(n)				
+	for col <- 1 to n									(n*n)
+		SUM[row,col] <- B[row,col] - C[row,col]			(n*n)
+return SUM												(1)
+														=2n^2+n+2		//BigO is O(n^2)
+MATRIXMULTIPLICATION(B, C)
+SUM <- empty matrix
+n <- INPUT matrix order									(1)    			
+for row <- 1 to n										(n)
+	for col <- 1 to n									(n*n)
+		SUM[row,col] <- 0								(n*n)
+for row <- 1 to n										(n)					
+	for col <- 1 to n									(n*n)				
+		for i <- 1 to n									(n*n*n			//Index to select row and coluum to be multiplied in each matrix
+			SUM[i,j]<- SUM[row,col]+B[row,i]*C[i,col]	(n*n*n)
+return SUM												(1)
+														=2n^3+3n^2+2n+2	//BigO is O(n^3)
+MATRIXSCALER(B, S)
+SUM <- empty matrix										(1)
+n <- INPUT matrix order									(1)   			
+for row <- 1 to n										(n)
+	for col <- 1 to n									(n*n)
+		SUM[i,j]<- B[row,col]*S							(n*n)
+return SUM												(1)
+														=2n^2+n+3		//BigO is O(n^2)
+A <- B*C - 2*(B+C)
+A1 <- MATRICXADDITION (B, C) 	
+A2 <- MATRIXMULTIPLICATION (B, C)
+A3 <- MATRIXSCALER (A1, 2)	
+A <- MATRIXSUBTRACTION (A2, A3) 											//BigO is O(n^3)
+
+When calculating the run-time, a single line of pseudo-code and the loop 
+takes constant time. The run-time analysis always considers the worst case. 
+Assuming n is the input size, m is the multiplier and k is the constant.
+Calculating the runtime of the algorithm gives an^3+mn^2+bn+ k. 
+The constant and multiplier are of little value or difference
+since it does not change the shape of the curve. 
+Since the actual running time of the algorithm is less than an^3+mn^2+bn+ k, 
+this can be seen as the bound or upper limit of the runtime. 
+Using the BigO notation to measure the efficiency of the algorithm is O(n^3).
+This means the algorithm performance will drop exponentially with input size.
+The most expensive part of the algorithm is the three nested loops from multiplying the matrices.

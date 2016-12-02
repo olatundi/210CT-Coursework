@@ -1,0 +1,15 @@
+BINARY_SEARCH(A, LOW, HIGH) 
+first <- 0
+last <- length[A]-1
+WHILE last > first
+	mid <- first + (last - first)/2
+	IF A[mid] >= LOW AND A[mid] <= HIGH
+		RETURN TRUE
+	ELSE IF A[mid] < LOW
+		first <- mid + 1
+	ELSE
+		last <- mid - 1
+	RETURN FALSE
+	
+The BigO notation is O(log(n)). 
+Binary search chooses the middle element for comparison.

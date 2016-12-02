@@ -1,0 +1,11 @@
+VOWELREMOVER(W)
+	IF W = ""
+		RETURN ""
+	index <- W[0]
+	IF index = 'a' OR index = 'e' OR index = 'i' OR
+	   index = 'o' OR index = 'u' OR index = 'A' OR
+	   index = 'E' OR index = 'I' OR index = 'O' OR index = 'U'
+		RETURN VOWELREMOVER(W[1..LENGTH(S))
+	ELSE
+		RETURN index VOWELREMOVER(W[1..LENGTH(S))
+		

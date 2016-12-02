@@ -1,0 +1,7 @@
+MAXPERFECT(N)	
+	perfect <- 1
+	i <- 1
+	WHILE i*i <= n
+		i <- i+1
+		perfect <- i*i
+	RETURN perfect 

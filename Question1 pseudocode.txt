@@ -1,0 +1,7 @@
+SENTENCEREVERSER(S) 
+    index <- indexOf(" ", S)     															//Find the index of the first occurrence of whitespace in S
+    IF index < 0  																			//Base case called when index is -1
+        RETURN S; 																			//If no whitespace found, there must be only a word, therefore S, the word is returned.
+		
+    ELSE   																					//First return recursively, the reversed rest of the sentence, then a single whitespace and the first word
+        RETURN concatenate(SENTENCEREVERSER(S[index+1..LENGTH(S)), " ", S[1..index])		//BigO is 0(n)

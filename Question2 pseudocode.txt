@@ -1,0 +1,16 @@
+ISPRIMERECURSION (N, D) 
+    IF D = 1
+        PRINT N " is a prime number"
+        RETURN TRUE
+    ELSE
+        IF N % D = 0        	
+            PRINT N " is not a prime number"
+            RETURN FALSE
+        ELSE
+           RETURN ISPRIMERECURSION (N, D-1)
+ 
+ISPRIME (A)
+    IF A <= 1
+        PRINT A " is not a prime number"
+        RETURN FALSE
+    RETURN ISPRIMERECURSION (A, A - 1)

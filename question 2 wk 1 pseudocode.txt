@@ -1,0 +1,33 @@
+ARRAYSHUFFLER(A)
+	rand <- random number generation					(1)
+	for index <- length[A] down to 1 					(n)
+		randomPos <- next random integer to index   	(n)
+		temp <- A[randomPos]							(n)
+		A[randomPos] <- A[index]						(n)
+		A[index] <- temp								(n)
+	return A 											(1)
+														= 5n + 2					//BigO is O(n)
+/*When calculating the run-time, a single line of pseudo-code and the loop 
+takes constant time. The run-time analysis always considers the worst case. 
+Assuming n is the input size, m is the multiplier and k is the constant.
+Calculating the runtime of the algorithm gives mn+ k. 
+The constant and multiplier are of little value or difference
+since it does not change the shape of the curve. 
+Since the actual running time of the algorithm is less than mn+k, 
+this can be seen as the bound or upper limit of the runtime. 
+Using the BigO notation to measure the efficiency of the algorithm is O(n).
+This means the performance of the algorithm will drop linearly with the size of the input. 
+The most expensive part of the algorithm is the loop.
+
+
+TRAILING ()   
+	n <- input factorial number
+    numZeros <- 0    									(1)   
+    while n > 0   									    (n)
+       n <- floor(n/5)								    (n)
+       numZeros <- numZeros + n 						(n)
+    return numZeros										(1)
+														=3n+2						//BigO is O(log(n))
+//If we assume n is a power of 5, we can say n = 5^k and know that there is always a value of k for all values of n
+Calculating the runtime of the algorithm gives log5(n) = k where n = 5^k.
+Using the BigO notation to measure the efficiency of the algorithm is O(log(n)).
